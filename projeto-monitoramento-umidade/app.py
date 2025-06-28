@@ -25,16 +25,23 @@ def obter_dados_clima():
         f"lat={LATITUDE}&lon={LONGITUDE}&appid={API_KEY}&units=metric&lang=pt_br"
     )
     resposta = requests.get(url)
-    dados = resposta.json()
+    
+    if resposta.status_code != 200:
+        st.error(f"Erro na API: Código {resposta.status_code} - {resposta.text}")
+        return None
 
-    # Extrair dados importantes
+    dados = resposta.json()
+    
+    if 'main' not in dados:
+        st.error(f"Resposta da API sem dados 'main': {dados}")
+        return None
+
     temperatura = dados['main']['temp']
     umidade = dados['main']['humidity']
     vento = dados['wind']['speed'] * 3.6  # m/s para km/h
     sensacao = dados['main'].get('feels_like', temperatura)
     precipitacao = 0
 
-    # Precipitação pode estar em 'rain' ou 'snow'
     if 'rain' in dados and '1h' in dados['rain']:
         precipitacao = dados['rain']['1h']
     elif 'snow' in dados and '1h' in dados['snow']:
@@ -106,6 +113,8 @@ if novo_dado['Umidade'] < 30:
 # Gráfico histórico
 st.subheader("📈 Histórico Ambiental")
 st.line_chart(st.session_state.dados.set_index("Tempo"))
+
+
 
 
 
