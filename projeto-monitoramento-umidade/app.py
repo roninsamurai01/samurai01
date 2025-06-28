@@ -12,7 +12,7 @@ st.markdown("📍 **Local:** Escola Vivendo e Aprendendo - 604 Norte, Brasília 
 st.markdown("🗺️ **Coordenadas:** -15.7833, -47.9167")
 
 # Sua API Key do OpenWeatherMap (substitua aqui)
-API_KEY = "SUA_API_KEY_AQUI"
+API_KEY = "b8c6ada7e962ac3be2e0eb1343c0d928"
 
 # Coordenadas da escola
 LATITUDE = -15.7833
@@ -106,4 +106,6 @@ if novo_dado['Umidade'] < 30:
 # Gráfico histórico
 st.subheader("📈 Histórico Ambiental")
 st.line_chart(st.session_state.dados.set_index("Tempo"))
+
+
 
