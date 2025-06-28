@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import random
 import time
-from streamlit_autorefresh import st_autorefresh
 
 # Configuração da página
 st.set_page_config(page_title="Monitoramento Ambiental", layout="centered")
@@ -12,12 +11,14 @@ st.title("🌦️ Monitoramento Ambiental em Tempo Real")
 st.markdown("📍 **Local:** Escola Vivendo e Aprendendo - 604 Norte, Brasília - DF")
 st.markdown("🗺️ **Coordenadas:** -15.7833, -47.9167")
 
-# Atualiza a página automaticamente a cada 10 segundos
-count = st_autorefresh(interval=10 * 1000, limit=None, key="refresh")
+# Atualiza automaticamente a cada 10 segundos (via HTML)
+st.markdown(f'<meta http-equiv="refresh" content="10">', unsafe_allow_html=True)
 
 # Inicializa os dados na sessão
 if 'dados' not in st.session_state:
-    st.session_state.dados = pd.DataFrame(columns=["Tempo", "Umidade", "Temperatura", "Sensação Térmica", "Vento", "Precipitação"])
+    st.session_state.dados = pd.DataFrame(columns=[
+        "Tempo", "Umidade", "Temperatura", "Sensação Térmica", "Vento", "Precipitação"
+    ])
 
 # Função para simular dados ambientais
 def gerar_dados():
@@ -36,9 +37,12 @@ def gerar_dados():
         "Precipitação": precipitacao
     }
 
-# Adiciona nova linha aos dados
+# Adiciona novo dado
 novo_dado = gerar_dados()
-st.session_state.dados = pd.concat([st.session_state.dados, pd.DataFrame([novo_dado])], ignore_index=True)
+st.session_state.dados = pd.concat(
+    [st.session_state.dados, pd.DataFrame([novo_dado])],
+    ignore_index=True
+)
 
 # Exibir métricas
 col1, col2, col3 = st.columns(3)
@@ -49,9 +53,11 @@ col3.metric("🌬️ Vento", f"{novo_dado['Vento']} km/h")
 col4, col5, col6 = st.columns(3)
 col4.metric("🥵 Sensação", f"{novo_dado['Sensação Térmica']}°C")
 col5.metric("☔ Precipitação", f"{novo_dado['Precipitação']} mm")
-if novo_dado['Umidade'] < 30:
-    col6.error("⚠️ Umidade muito baixa!")
 
-# Gráficos de linha para os dados
+# Alerta se a umidade estiver baixa
+if novo_dado['Umidade'] < 30:
+    col6.error("⚠️ Umidade muito baixa! Risco à saúde.")
+
+# Gráfico histórico
 st.subheader("📈 Histórico Ambiental")
 st.line_chart(st.session_state.dados.set_index("Tempo"))
