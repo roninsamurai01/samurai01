@@ -12,7 +12,7 @@ st.markdown("📍 **Local:** Escola Vivendo e Aprendendo - 604 Norte, Brasília 
 st.markdown("🗺️ **Coordenadas:** -15.7833, -47.9167")
 
 # Atualiza automaticamente a cada 10 segundos (via HTML)
-st.markdown(f'<meta http-equiv="refresh" content="10">', unsafe_allow_html=True)
+st.markdown(f'<meta http-equiv="refresh" content="60">', unsafe_allow_html=True)
 
 # Inicializa os dados na sessão
 if 'dados' not in st.session_state:
