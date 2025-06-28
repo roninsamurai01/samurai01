@@ -1,34 +1,89 @@
-# Projeto: Monitoramento de Umidade com Alerta Inteligente
+# 🌦️ Projeto: Monitoramento Ambiental com Simulação de Dados
 
-## Objetivo
-Monitorar a umidade do ambiente escolar e exibir alertas e gráficos em tempo real.
+## 🎯 Objetivo
+Simular um sistema de monitoramento ambiental em tempo real, exibindo informações como:
+- Umidade
+- Temperatura
+- Sensação térmica
+- Vento
+- Precipitação
 
-## Ferramentas
+Com visualização em gráficos e alertas inteligentes, integrado a um site WordPress.
+
+---
+
+## 🛠️ Ferramentas Utilizadas
+
 - Python 3.13.1
-- Streamlit
-- GitHub
-- Streamlit Cloud
-- WordPress (para embutir o app com iframe)
+- [Streamlit](https://streamlit.io)
+- VSCode
+- WordPress (para incorporar via `<iframe>`)
+- Navegador (para auto atualização via HTML)
 
-## Como Rodar Localmente
+---
+
+## 🚀 Como Executar Localmente
+
 1. Instale as dependências:
+
 ```bash
-pip install -r requisitos.txt
+pip install streamlit pandas
 ```
 
-2. Execute o app:
+2. Execute o aplicativo:
+
 ```bash
 streamlit run app.py
 ```
 
-## Como Publicar Online com Streamlit Cloud
-1. Crie um repositório no GitHub e envie esses arquivos.
-2. Acesse https://streamlit.io/cloud, conecte sua conta do GitHub.
-3. Escolha o repositório e deploye o app.
-https://samurai01projetomonitoramento.streamlit.app
-## Como Integrar no WordPress
-1. Copie este código e cole em um bloco HTML do WordPress:
+3. O app será aberto automaticamente no navegador.
+
+---
+
+## 🔁 Atualização Automática
+
+O app utiliza o recurso HTML:
 
 ```html
-<iframe src="https://samurai01projetomonitoramento.streamlit.app" width="100%" height="600" frameborder="0"></iframe>
+<meta http-equiv="refresh" content="10">
 ```
+
+Esse comando recarrega a página automaticamente a cada 10 segundos, permitindo simular dados em tempo real **sem usar bibliotecas externas**.
+
+---
+
+## 🌍 Como Publicar com Streamlit Cloud (Gratuito)
+
+1. Suba o projeto no GitHub.
+2. Acesse: https://streamlit.io/cloud
+3. Conecte sua conta GitHub e selecione o repositório.
+4. Defina `app.py` como arquivo principal e clique em **Deploy**.
+
+---
+
+## 🌐 Como Incorporar no WordPress
+
+No painel do WordPress, adicione um bloco HTML com o seguinte código:
+
+```html
+<iframe src="https://SEU_APP.streamlit.app" width="100%" height="700" frameborder="0"></iframe>
+```
+
+Substitua o link pelo gerado na Streamlit Cloud.
+
+---
+
+## 🧠 Extensões Futuras
+
+- Conectar sensores físicos reais (IoT)
+- Enviar alertas por e-mail ou WhatsApp
+- Armazenar dados em CSV ou banco de dados
+
+---
+
+## 📍 Local do Projeto
+
+**Escola Vivendo e Aprendendo – 604 Norte, Brasília – DF**  
+**Coordenadas:** -15.7833, -47.9167
+
+---
