@@ -25,10 +25,10 @@ streamlit run app.py
 1. Crie um repositório no GitHub e envie esses arquivos.
 2. Acesse https://streamlit.io/cloud, conecte sua conta do GitHub.
 3. Escolha o repositório e deploye o app.
-https://samurai-projetomonitoramento.streamlit.app
+https://samurai01projetomonitoramento.streamlit.app
 ## Como Integrar no WordPress
 1. Copie este código e cole em um bloco HTML do WordPress:
 
 ```html
-<iframe src="https://samurai-projetomonitoramento.streamlit.app" width="100%" height="600" frameborder="0"></iframe>
+<iframe src="https://samurai01projetomonitoramento.streamlit.app" width="100%" height="600" frameborder="0"></iframe>
 ```
