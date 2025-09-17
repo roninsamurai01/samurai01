@@ -1,0 +1,86 @@
+<style>
+    .container-monitoramento {
+    background: linear-gradient(135deg, #f0f4ff, #d9e2ff);
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(44, 123, 229, 0.3);
+    max-width: 480px;
+    margin: 40px auto;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .container-monitoramento:hover {
+    box-shadow: 0 16px 40px rgba(44, 123, 229, 0.5);
+  }
+
+  .container-monitoramento h2 {
+    color: #1a237e;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+
+  .container-monitoramento p {
+    color: #3f51b5;
+    font-size: 16px;
+    margin-bottom: 28px;
+    line-height: 1.4;
+  }
+
+  .btn-monitoramento {
+    background: #3949ab;
+    color: white;
+    padding: 14px 36px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 36px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(57, 73, 171, 0.55);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.12s ease;
+    display: inline-block;
+    user-select: none;
+  }
+
+  .btn-monitoramento:hover {
+    background: #283593;
+    box-shadow: 0 10px 30px rgba(40, 53, 147, 0.8);
+  }
+
+  .btn-monitoramento:active {
+    transform: translateY(3px);
+    box-shadow: 0 5px 12px rgba(40, 53, 147, 0.45);
+  }
+
+  @media (max-width: 600px) {
+    .container-monitoramento {
+      max-width: 90%;
+      padding: 20px 15px;
+    }
+
+    .container-monitoramento h2 {
+      font-size: 24px;
+    }
+
+    .container-monitoramento p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .btn-monitoramento {
+      padding: 12px 28px;
+      font-size: 16px;
+    }
+  }
+</style>
+
+<div class="container-monitoramento">
+  <h2>📊 Monitoramento Ambiental</h2>
+  <p>Visualize os dados atualizados da Escola Vivendo e Aprendendo - 604 Norte, Brasília - DF.</p>
+  <a href="https://samurai01-projetomonitoramento.streamlit.app" target="_blank" rel="noopener noreferrer" class="btn-monitoramento">
+    Acessar Monitoramento
+  </a>
+</div>
